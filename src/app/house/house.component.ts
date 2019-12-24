@@ -6,17 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./house.component.css']
 })
 export class HouseComponent implements OnInit {
+  title="House Properties"
   house: House ={
-    name:'saurabh',
+    name:'Saurabh',
     color:'White',
     room:5,
     Address:'71,near zydus hospital',
-    shape:'square',
+    shape:'Square',
     floor:3,
     door:10,
     window:8,
-    entrygateshape:'round',
-    table:'square'
+    entrygateshape:'Round',
+    table:'Square'
   }
   
   constructor() { }

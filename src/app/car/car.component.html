@@ -1,0 +1,9 @@
+<p>car works!</p>
+
+<button (click)= getcar();  class="button">Get Cars</button>
+<div *ngFor='let car of carList'>
+    <div><p>{{car.name}}</p></div>
+    <div><p>{{car.color}}</p></div>
+    <div><p>{{car.type}}</p></div>
+    <div><p>{{car.door}}</p></div>
+</div>

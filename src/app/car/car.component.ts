@@ -7,26 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarComponent implements OnInit {
 
+  car: Car = new Car();
   carList: Car[] = [];
-  
+  visibleCar: string;
+
   constructor() { }
 
   ngOnInit() {
   }
-  getcar() {
-    const car = new Car();
-    car.name = 'agguar';
-    car.color = 'black';
-    car.type = 'sidden';
-    car.door = '3 door';
-    this.carList.push(car);
+  addcar(KEY) {
+    const newCar: Car = new Car();
+    newCar.name = this.car.name;
+    newCar.color = this.car.color;
+    newCar.Variant = this.car.Variant;
+    newCar.Price = this.car.Price;
+    newCar.key = KEY;
+    this.carList.push(newCar);
   }
-  
+  showcar(CAR) {
+    this.visibleCar = CAR;
+  }
 }
 export class Car {
   name: string;
   color: string;
-  type: string;
-  door: string;
-
+  Variant: string;
+  Price: string;
+  key: string;
 }

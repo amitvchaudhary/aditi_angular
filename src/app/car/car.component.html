@@ -1,9 +1,42 @@
 <p>car works!</p>
 
-<button (click)= getcar();  class="button">Get Cars</button>
-<div *ngFor='let car of carList'>
+<!-- <div *ngFor='let car of carList'>
     <div><p>{{car.name}}</p></div>
     <div><p>{{car.color}}</p></div>
     <div><p>{{car.type}}</p></div>
     <div><p>{{car.door}}</p></div>
+</div> -->
+<div class="full-width"><label class="label">Name:</label> <input type="text" [(ngModel)]="car.name" class="textbox">
 </div>
+<div class="full-width"><label class="label">Color: </label><input type="text" [(ngModel)]="car.color" class="textbox">
+</div>
+<div class="full-width"><label class="label">Variant: </label><input type="text" [(ngModel)]="car.Variant"
+        class="textbox"></div>
+<div class="full-width"><label class="label">Price: </label><input type="text" [(ngModel)]="car.Price" class="textbox">
+</div>
+<div class="full-width">
+    <label class="label">Brand: </label>
+    <select #carkey>
+        <option value="mg"> MG </option>
+        <option value="ms"> Maruti Suzuki </option>
+        <option value="hy">Hyundai</option>
+        <option value="me">Mahindra</option>
+    </select>
+</div>
+<br>
+<button (click)="addcar(carkey.value);" class=" button">ADD CAR</button>
+<br>
+
+<button (click)="showcar('mg');" class=" button">MG</button>
+<button (click)="showcar('ms');" class="button">Maruti Suzuki</button>
+<button (click)="showcar('hy');" class="button">Hyundai</button>
+<button (click)="showcar('me');" class="button">Mahindra</button>
+<button (click)="showcar('all');" class="button">All</button>
+<ul>
+    <li *ngFor="let car of carList" class="listcar {{visibleCar == car.key || visibleCar == 'all'? 'active':'hidden'}}" title="{{car.key}}">
+        <p>{{car.name}}</p>
+        <p>{{car.color}}</p>
+        <p>{{car.Variant}}</p>
+        <p>{{car.Price}}</p>
+    </li>
+</ul>

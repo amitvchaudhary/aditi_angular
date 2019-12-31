@@ -1,12 +1,12 @@
-<p>car works!</p>
+<!-- <p>car works!</p> -->
 
-<!-- <div *ngFor='let car of carList'>
+<!--<div *ngFor='let car of carList'>
     <div><p>{{car.name}}</p></div>
     <div><p>{{car.color}}</p></div>
     <div><p>{{car.type}}</p></div>
     <div><p>{{car.door}}</p></div>
 </div> -->
-<div class="full-width"><label class="label">Name:</label> <input type="text" [(ngModel)]="car.name" class="textbox">
+ <div class="full-width"><label class="label">Name:</label> <input type="text" [(ngModel)]="car.name" class="textbox">
 </div>
 <div class="full-width"><label class="label">Color: </label><input type="text" [(ngModel)]="car.color" class="textbox">
 </div>
@@ -14,29 +14,83 @@
         class="textbox"></div>
 <div class="full-width"><label class="label">Price: </label><input type="text" [(ngModel)]="car.Price" class="textbox">
 </div>
-<div class="full-width">
+<!--<div class="full-width">
     <label class="label">Brand: </label>
-    <select #carkey>
+     <select #carkey>
         <option value="mg"> MG </option>
         <option value="ms"> Maruti Suzuki </option>
         <option value="hy">Hyundai</option>
         <option value="me">Mahindra</option>
-    </select>
-</div>
+    </select> 
+</div>-->
 <br>
-<button (click)="addcar(carkey.value);" class=" button">ADD CAR</button>
+<button (click)="addcar();" class=" button">ADD CAR</button>
 <br>
-
-<button (click)="showcar('mg');" class=" button">MG</button>
+<br>
+<!-- <button (click)="showcar('mg');" class=" button">MG</button>
 <button (click)="showcar('ms');" class="button">Maruti Suzuki</button>
 <button (click)="showcar('hy');" class="button">Hyundai</button>
 <button (click)="showcar('me');" class="button">Mahindra</button>
-<button (click)="showcar('all');" class="button">All</button>
-<ul>
+<button (click)="showcar('all');" class="button">All</button> -->
+<!-- <ul>
     <li *ngFor="let car of carList" class="listcar {{visibleCar == car.key || visibleCar == 'all'? 'active':'hidden'}}" title="{{car.key}}">
         <p>{{car.name}}</p>
         <p>{{car.color}}</p>
         <p>{{car.Variant}}</p>
         <p>{{car.Price}}</p>
     </li>
-</ul>
+</ul> -->
+<div class="addcarlist float-left">
+    <p><button  class="button"  (click)="sendFirstCarToProduction();">ADD TO RIGHT</button></p>
+    <ul>
+        <li *ngFor="let car of carList; let i = index;" class="listcar"  title="{{car.key}}"  (click)="sendToProduction(i);">
+            <p>Car Name : {{car.name}}</p>
+            <p>Car Color : {{car.color}}</p>
+            <p>Car Color : {{car.Variant}}</p>
+            <p>Car Color : {{car.Price}}</p>
+           
+        </li>
+    </ul>
+</div>
+
+<div class="addcarlist float-right">
+    <p><button  class="button"  (click)="sendFirstCarToStock();">ADD TO LEFT</button></p>
+    <ul>
+        <li *ngFor="let car of caraddList; let i = index;" class="listcar"  title="{{car.key}}" (click)="sendToStock(i);">
+            <p>Car Name : {{car.name}}</p>
+            <p>Car Color : {{car.color}}</p>
+            <p>Car Color : {{car.Variant}}</p>
+            <p>Car Color : {{car.Price}}</p>
+           
+        </li>
+    </ul>
+</div>
+
+<!-- new way to databind -->
+
+
+<!-- <input type="text" #name>
+<br><br>
+<select #color>
+    <option value="red">red</option>
+    <option value="blue">blue</option>
+    <option value="black">black</option>
+</select>
+<br><br>
+<select #fuel>
+    <option value="petrol">Petrol</option>
+    <option value="Diesel">Diesel</option>
+</select>
+<br><br>
+<input type="number"  #price min="500000" max="1500000" step="100000">
+<br><br>
+<button (click)="addCar(name.value, color.value, fuel.value, price.value)">Add Car</button>
+
+<ol>
+    <li *ngFor="let car of carList">
+        <p>Name : {{car.name}}</p>
+        <p>Color : {{car.color}}</p>
+        <p>Variant : {{car.Variant}}</p>
+        <p>Price : {{car.Price}}</p>
+    </li>
+</ol> -->

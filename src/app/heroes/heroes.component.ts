@@ -7,18 +7,23 @@ import { HEROES } from '../mock-heroes';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
+  //hero: Hero[] = [];
+  heroes = HEROES;
 
   constructor() { }
 
   ngOnInit() {
   }
+  
+  remove(hero)
+  {
+    alert(hero.name);
+    let itemIndex = this.heroes.indexOf(hero);
+    this.heroes.splice(itemIndex, 1);
+  }
 
-  onSelect(hero: Hero): void {
-    // this.selectedHero = hero;
-
-}
+  // remove(index)
+  // {
+  //   this.heroes.splice(index, 1);
+  // }
 }

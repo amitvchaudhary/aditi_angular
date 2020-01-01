@@ -1,0 +1,13 @@
+<div class="addcarlist float-left">
+    
+    <ul>
+        <li *ngFor="let car of carListnew; let i = index;" class="listcar"  title="{{car.key}}"  (click)="sendToProduction(i);">
+            <p>Car Name : {{car.name}}</p>
+            <p>Car Color : {{car.color}}</p>
+            <p>Car Color : {{car.Variant}}</p>
+            <p>Car Color : {{car.Price}}</p>
+           
+        </li>
+    </ul>
+</div>
+

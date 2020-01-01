@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-car',
@@ -28,12 +28,12 @@ export class CarComponent implements OnInit {
   }
 
   sendFirstCarToProduction() {
-    if(this.carList.length > 0) {
-    var removecar = this.carList.shift();
-    this.caraddList.push(removecar);
+    if (this.carList.length > 0) {
+      var removecar = this.carList.shift();
+      this.caraddList.push(removecar);
     }
-    else{
-      
+    else {
+
     }
 
   }

@@ -14,7 +14,17 @@
         class="textbox"></div>
 <div class="full-width"><label class="label">Price: </label><input type="text" [(ngModel)]="car.Price" class="textbox">
 </div>
+<div class="full-width">
+<button (click)="addcar();" class=" button">ADD CAR</button>
+<app-car-details [carListnew]='carList'></app-car-details>
+<button  class="button"  (click)="sendFirstCarToProduction()">Move to Production</button>
+</div>
+<app-car-details [carListnew]='caraddList'></app-car-details>
+<button  class="button"  (click)="sendFirstCarToStock()">Move to Stock</button>
+
 <!--<div class="full-width">
+
+
     <label class="label">Brand: </label>
      <select #carkey>
         <option value="mg"> MG </option>
@@ -23,10 +33,10 @@
         <option value="me">Mahindra</option>
     </select> 
 </div>-->
+<!-- <br>
+
 <br>
-<button (click)="addcar();" class=" button">ADD CAR</button>
-<br>
-<br>
+<br> -->
 <!-- <button (click)="showcar('mg');" class=" button">MG</button>
 <button (click)="showcar('ms');" class="button">Maruti Suzuki</button>
 <button (click)="showcar('hy');" class="button">Hyundai</button>
@@ -40,7 +50,7 @@
         <p>{{car.Price}}</p>
     </li>
 </ul> -->
-<div class="addcarlist float-left">
+<!-- <div class="addcarlist float-left">
     <p><button  class="button"  (click)="sendFirstCarToProduction();">ADD TO RIGHT</button></p>
     <ul>
         <li *ngFor="let car of carList; let i = index;" class="listcar"  title="{{car.key}}"  (click)="sendToProduction(i);">
@@ -64,7 +74,7 @@
            
         </li>
     </ul>
-</div>
+</div> -->
 
 <!-- new way to databind -->
 

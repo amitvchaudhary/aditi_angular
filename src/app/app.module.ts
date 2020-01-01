@@ -7,13 +7,15 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
 import { HouseComponent } from './house/house.component';
 import { CarComponent } from './car/car.component';
+import { CarDetailsComponent } from './car-details/car-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
     HouseComponent,
-    CarComponent
+    CarComponent,
+    CarDetailsComponent
   ],
   imports: [
     BrowserModule,

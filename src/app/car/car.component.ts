@@ -12,9 +12,16 @@ export class CarComponent implements OnInit {
   caraddList: Car[] = [];
   //visibleCar: string;
 
-  constructor() { }
+  constructor() {
+    console.log('Car Constructor Called');
+  }
 
   ngOnInit() {
+    console.log('Car ngOnInit Called');
+  }
+
+  ngOnChanges() {
+    console.log('Car ngOnChanges Called');
   }
   addcar(KEY) {
     const newCar: Car = new Car();
@@ -28,18 +35,12 @@ export class CarComponent implements OnInit {
   }
 
   sendFirstCarToProduction() {
-    if (this.carList.length > 0) {
-      var removecar = this.carList.shift();
-      this.caraddList.push(removecar);
-    }
-    else {
-
-    }
-
+    var firstCar = this.carList.shift();
+    this.caraddList.push(firstCar);
   }
   sendFirstCarToStock() {
-    var addcar = this.caraddList.shift();
-    this.carList.push(addcar);
+    var firstCar = this.caraddList.shift();
+    this.carList.push(firstCar);
   }
 
   sendToStock(carIndex) {
@@ -53,16 +54,12 @@ export class CarComponent implements OnInit {
     // var removecar: any = this.carList[carIndex];
     // this.caraddList.push(removecar);
     // this.carList.splice(carIndex, 1);
+
   }
 
-
-
-
-
-
-
-
-
+  sendCar(e) {
+    
+  }
   // showcar(CAR) {
   //   this.visibleCar = CAR;
   // }
@@ -75,6 +72,10 @@ export class CarComponent implements OnInit {
 
   //   this.carList.push(newCar);
   // }
+
+  ngOnDestroy() {
+    console.log('Car ngOnDestroy Called');
+  }
 }
 export class Car {
   name: string;

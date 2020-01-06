@@ -30,7 +30,7 @@
     margin: 5px;
     float: left;
 }
-.listcar
+/* .listcar
 {
     width: 33.33%;
     float: left;
@@ -52,5 +52,5 @@ li{
     width: 200px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     padding: 20px;
-}
+} */
 .hidden { display: none;}

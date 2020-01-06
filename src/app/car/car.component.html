@@ -6,7 +6,7 @@
     <div><p>{{car.type}}</p></div>
     <div><p>{{car.door}}</p></div>
 </div> -->
- <div class="full-width"><label class="label">Name:</label> <input type="text" [(ngModel)]="car.name" class="textbox">
+<div class="full-width"><label class="label">Name:</label> <input type="text" [(ngModel)]="car.name" class="textbox">
 </div>
 <div class="full-width"><label class="label">Color: </label><input type="text" [(ngModel)]="car.color" class="textbox">
 </div>
@@ -14,13 +14,17 @@
         class="textbox"></div>
 <div class="full-width"><label class="label">Price: </label><input type="text" [(ngModel)]="car.Price" class="textbox">
 </div>
-<div class="full-width">
 <button (click)="addcar();" class=" button">ADD CAR</button>
-<app-car-details [carListnew]='carList'></app-car-details>
-<button  class="button"  (click)="sendFirstCarToProduction()">Move to Production</button>
+<div class="addcarlist float-left" *ngIf="caraddList.length > 0">
+    <app-car-details [carListnew]='caraddList' (swapCar)="sendCar($event)"></app-car-details>
+    <button class="button" (click)="sendFirstCarToStock()">Move to Stock</button>
 </div>
-<app-car-details [carListnew]='caraddList'></app-car-details>
-<button  class="button"  (click)="sendFirstCarToStock()">Move to Stock</button>
+<br/>
+<div class="addcarlist float-left" *ngIf="carList.length > 0">
+    <app-car-details [carListnew]='carList'  (swapCar)="sendCar($event)"></app-car-details>
+    <button class="button" (click)="sendFirstCarToProduction()">Move to Production</button>
+</div>
+
 
 <!--<div class="full-width">
 

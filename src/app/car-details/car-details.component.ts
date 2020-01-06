@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Car } from '../car/car.component';
 
 @Component({
@@ -9,10 +9,27 @@ import { Car } from '../car/car.component';
 })
 export class CarDetailsComponent implements OnInit {
   @Input() carListnew: Car[] = [];
+  //@Input() Production: Car[] = [];
+  @Output() swapCar = new EventEmitter();
   
-  constructor() { }
+  constructor() {
+    console.log('Car detail Constructor Called');
+  }
 
   ngOnInit() {
+    console.log('Car  detail ngOnInit Called');
+  }
+
+  ngOnChanges() {
+    console.log('Car detail ngOnChanges Called');
+  }
+
+  changeCar(INDEX) {
+    this.swapCar.emit(INDEX);
+  }
+
+  ngOnDestroy() {
+    console.log('Car  detail ngOnDestroy Called');
   }
 
 }

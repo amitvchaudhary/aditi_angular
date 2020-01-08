@@ -16,7 +16,7 @@
 }
 .label
 {
-    width:50px;
+    width:150px;
     float: left;
 }
 .textbox
@@ -29,6 +29,24 @@
     outline: none;
     margin: 5px;
     float: left;
+}
+
+.car-container {
+    width: 100%;
+    display: inline-block;
+}
+.car-container .car-list {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 46%;
+    margin: 0 2%;
+    height: 50vh;
+    overflow: auto;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+.car-container .car-list h3 {
+    text-align: center;
 }
 /* .listcar
 {

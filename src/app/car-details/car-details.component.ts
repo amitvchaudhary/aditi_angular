@@ -9,7 +9,7 @@ import { Car } from '../car/car.component';
 })
 export class CarDetailsComponent implements OnInit {
   @Input() carListnew: Car[] = [];
-  //@Input() Production: Car[] = [];
+  @Input() carSendTo: string;
   @Output() swapCar = new EventEmitter();
   
   constructor() {
@@ -24,12 +24,19 @@ export class CarDetailsComponent implements OnInit {
     console.log('Car detail ngOnChanges Called');
   }
 
-  changeCar(INDEX) {
-    this.swapCar.emit(INDEX);
+  changeCar(CAR_SENT_TO, INDEX) {
+    let car = {
+      
+      'carSendTo' : CAR_SENT_TO,
+      'index' : INDEX 
+    }
+    this.swapCar.emit(car);
   }
 
   ngOnDestroy() {
     console.log('Car  detail ngOnDestroy Called');
   }
+
+
 
 }

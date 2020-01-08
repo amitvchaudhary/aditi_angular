@@ -1,7 +1,7 @@
 <div class="addcarlist float-left">
     
     <ul>
-        <li *ngFor="let car of carListnew; let i = index;" class="listcar"  title="{{car.key}}"  (click)="changeCar(i);">
+        <li *ngFor="let car of carListnew; let i = index;" class="listcar"  title="{{car.key}}"  (click)="changeCar(carSendTo, i);">
             <p>Car Name : {{car.name}}</p>
             <p>Car Color : {{car.color}}</p>
             <p>Car Color : {{car.Variant}}</p>

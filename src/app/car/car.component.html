@@ -14,18 +14,39 @@
         class="textbox"></div>
 <div class="full-width"><label class="label">Price: </label><input type="text" [(ngModel)]="car.Price" class="textbox">
 </div>
+
 <button (click)="addcar();" class=" button">ADD CAR</button>
-<div class="addcarlist float-left" *ngIf="caraddList.length > 0">
-    <app-car-details [carListnew]='caraddList' (swapCar)="sendCar($event)"></app-car-details>
-    <button class="button" (click)="sendFirstCarToStock()">Move to Stock</button>
-</div>
-<br/>
-<div class="addcarlist float-left" *ngIf="carList.length > 0">
-    <app-car-details [carListnew]='carList'  (swapCar)="sendCar($event)"></app-car-details>
-    <button class="button" (click)="sendFirstCarToProduction()">Move to Production</button>
+<br>
+<div class="car-container">
+    <div class="car-list">
+        <h3>Stock Car List</h3>
+        <div class="" *ngIf="carList.length > 0">
+            <app-car-details [carListnew]='carList' [carSendTo]="'production'" (swapCar)="sendCar($event)">
+            </app-car-details>
+            <button class="button addcarlist float-left" (click)="sendFirstCarToProduction()">Move to
+                Production</button>
+        </div>
+    </div>
+    
+    <div class="car-list">
+        <h3>Production Car List</h3>
+        <div class="" *ngIf="caraddList.length > 0">
+            <app-car-details [carListnew]='caraddList' [carSendTo]="'stock'" (swapCar)="sendCar($event)">
+            </app-car-details>
+            <button class="button addcarlist float-left" (click)="sendFirstCarToStock()">Move to Stock</button>
+        </div>
+    </div>
 </div>
 
 
+<div class="full-width"><label class="label">Name: </label><input type="text" [(ngModel)]="no1" class="textbox">
+</div>
+<div class="full-width"><label class="label">surname: </label><input type="text" [(ngModel)]="no2" class="textbox">
+</div>
+<button (click)="addstring()">Add</button><br /><br />
+
+
+<label>Value is: {{result}}</label>
 <!--<div class="full-width">
 
 

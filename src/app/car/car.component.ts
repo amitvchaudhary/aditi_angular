@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { NewserviceService } from '../newservice.service';
 
 @Component({
   selector: 'app-car',
@@ -11,8 +12,10 @@ export class CarComponent implements OnInit {
   carList: Car[] = [];
   caraddList: Car[] = [];
   //visibleCar: string;
-
-  constructor() {
+  no1: string;
+  no2:string;
+  result:string;
+  constructor( private demo: NewserviceService) {
     console.log('Car Constructor Called');
   }
 
@@ -44,6 +47,7 @@ export class CarComponent implements OnInit {
   }
 
   sendToStock(carIndex) {
+  
     this.carList.push(this.caraddList[carIndex]);
     this.caraddList.splice(carIndex, 1);
   }
@@ -56,9 +60,21 @@ export class CarComponent implements OnInit {
     // this.carList.splice(carIndex, 1);
 
   }
+  addstring()
+  {
+      this.result = this.demo.addstring(this.no1 , this.no2);
+  }
+  
 
   sendCar(e) {
-    
+    if(e.carSendTo =='stock')
+    {
+      this.sendToStock(e.index);
+      
+    } else if(e.carSendTo =='prodcution')
+    {
+      this.sendToProduction(e.index);
+    }
   }
   // showcar(CAR) {
   //   this.visibleCar = CAR;
